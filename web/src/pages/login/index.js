@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 
 import history from '../../history'
 
@@ -10,6 +10,14 @@ export default function Login() {
     const [ email, setEmail ] = useState('')
     const [ password, setPassword ] = useState('')
 
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+
+        if(token) {
+            history.push('/home')
+        }
+    }, [])
+
     function handleSubmit(e) {
         e.preventDefault() 
 
@@ -18,31 +26,47 @@ export default function Login() {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <input 
-                    type="email" 
-                    name="email" 
-                    id="email"
-                    placeholder="Digite seu email"
-                    onChange={
-                        (e) => setEmail(e.target.value)
-                    }   
-                />
+            <form className="form" onSubmit={handleSubmit}>
+                <div className="input-section">
+                    <input 
+                        type="email" 
+                        name="email" 
+                        id="email"
+                        required
+                        onChange={
+                            (e) => setEmail(e.target.value)
+                        }   
+                    />
+                    <label className="label-input">
+                        <span className="content-label">
+                            Digite seu e-mail
+                        </span>
+                    </label>
+                </div>
 
-                <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="Digite sua senha"
-                    onChange={
-                        (e) => setPassword(e.target.value)
-                    }
-                />
+                <div className="input-section">
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        required
+                        onChange={
+                            (e) => setPassword(e.target.value)
+                        }
+                    />
+
+                    <label className="label-input">
+                        <span className="content-label">
+                            Digite sua senha
+                        </span>
+                    </label>
+                </div>
 
                 <button 
                     type="submit" 
-                    name="enviar"
-                    id="enviar"
+                    name="send"
+                    id="send"
+                    className="send"
                 >
                     Fazer login
                 </button>

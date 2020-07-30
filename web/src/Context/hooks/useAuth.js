@@ -31,8 +31,7 @@ export default function useAuth() {
             api.defaults.headers.Authorization = `Bearer ${token}`
 
             setAuthenticated(true)
-            history.push('/home')           
-
+            history.push('/home')
         } catch (err) {
             throw err
         }
