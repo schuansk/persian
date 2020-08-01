@@ -1,0 +1,45 @@
+#man{
+    animation: man-moviment 4s ease alternate;
+}
+
+#woman {
+    animation: woman-moviment  4s ease alternate;
+}
+
+#display {
+    animation: display-animation  2s ease alternate;
+}
+
+@keyframes man-moviment {
+    from {
+        transform: translateX(10%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 100%;
+    }
+}
+
+@keyframes woman-moviment {
+    from {
+        transform: translateX(-10px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 100%;
+    }
+}
+
+@keyframes display-animation {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 100%;
+    }
+}

@@ -1,76 +1,33 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React from 'react'
 
-import history from '../../history'
+import './styles.css'
 
-import { Context } from '../../Context/AuthContext'
+import logo from '../../assets/svg/persian-logo.svg'
+
+import LoginContainer from '../../components/LoginContainer'
+import SidebarInfo from '../../components/SidebarInfo'
+import ImageLogin from '../../components/ImageLogin'
 
 export default function Login() {
-    const { handleLogin } = useContext(Context)
-
-    const [ email, setEmail ] = useState('')
-    const [ password, setPassword ] = useState('')
-
-    useEffect(() => {
-        const token = localStorage.getItem('token')
-
-        if(token) {
-            history.push('/home')
-        }
-    }, [])
-
-    function handleSubmit(e) {
-        e.preventDefault() 
-
-        handleLogin(email, password)
-    }
-
     return (
-        <>
-            <form className="form" onSubmit={handleSubmit}>
-                <div className="input-section">
-                    <input 
-                        type="email" 
-                        name="email" 
-                        id="email"
-                        required
-                        onChange={
-                            (e) => setEmail(e.target.value)
-                        }   
-                    />
-                    <label className="label-input">
-                        <span className="content-label">
-                            Digite seu e-mail
-                        </span>
-                    </label>
+        <div className="login">
+            <div className="sidebar-info">                
+                <SidebarInfo />
+                <div>
+                    <h2>Gestão de clientes</h2>
+                    <p>Uma plataforma simples para você gerenciar os dados de seus clientes.</p>
+                    <span>
+                        <ImageLogin />
+                    </span>
                 </div>
-
-                <div className="input-section">
-                    <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        required
-                        onChange={
-                            (e) => setPassword(e.target.value)
-                        }
-                    />
-
-                    <label className="label-input">
-                        <span className="content-label">
-                            Digite sua senha
-                        </span>
-                    </label>
+            </div>
+            <div className="login-container">
+                <div className="logo">
+                    <img src={logo} alt="Persian logo"/>
+                    <h1>Persian</h1>
                 </div>
-
-                <button 
-                    type="submit" 
-                    name="send"
-                    id="send"
-                    className="send"
-                >
-                    Fazer login
-                </button>
-            </form>
-        </>
+                <LoginContainer />
+            </div>            
+        </div>
     )
 }

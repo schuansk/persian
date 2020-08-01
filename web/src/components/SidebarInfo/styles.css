@@ -1,0 +1,28 @@
+div.svg svg {
+    width: 100%;
+    height: 100vh;
+    display: flex; 
+}
+
+#bg-behind {
+    animation: moviment 4s infinite alternate-reverse;
+}
+
+#bg-above {
+    animation: moviment 3s infinite alternate-reverse;
+}
+
+#bg-behind, #bg-above {
+    transform-origin: left;
+    transform-box: fill-box;
+}
+
+@keyframes moviment {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(3%);
+    }
+}
