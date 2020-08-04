@@ -11,3 +11,259 @@ body {
     font-family: 'Roboto', sans-serif; 
     background-color: #F2F2F2;
 }
+
+.container {
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+    margin: 0;
+}
+
+.content {
+    max-width: 1224px;
+}
+
+.col-1 {
+    width: 10%;
+}
+
+.col-2 {
+    width: 20%;
+}
+
+.col-3 {
+    width: 30%;
+}
+
+.col-4 {
+    width: 40%;
+}
+
+.col-5 {
+    width: 50%;
+}
+
+.col-6 {
+    width: 60%;
+}
+
+.col-7 {
+    width: 70%;
+}
+
+.col-8 {
+    width: 80%;
+}
+
+.col-9 {
+    width: 90%;
+}
+
+.col-10 {
+    width: 100%;
+}
+
+.h1 {
+    font-size: 4em;
+}
+
+.h2 {
+    font-size: 3em;
+    font-weight: 300;
+}
+
+.p {
+    font-size: 1.2em;
+}
+
+.title {
+    font-family: 'Lobster', cursive;
+}
+
+.subtitle {
+    font-size: 2em;
+    font-weight: 300;   
+}
+
+.text-color-primary {
+    color: #FE6D6D;
+}
+
+.text-color-secondary {
+    color: #6C63FF;
+}
+
+.text-color-dark {
+    color: #2F2E41;
+}
+
+.text-color-gray {
+    color: #5E5E5E;
+}
+
+.text-color-light {
+    color: #FFF;
+}
+
+.background-color-primary {
+    background-color: #FE6D6D;
+}
+
+.background-color-secondary {
+    background-color: #6C63FF;
+}
+
+.input-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.input-section input {
+    width: 100%;
+    color: #5E5E5E;
+    padding-top: 20px;
+    padding-bottom: 2px;
+    border: none;
+    font-size: 1.2em;
+    outline: none;
+}
+
+.input-section label {
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid #5E5E5E;
+}
+
+.input-section label::after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: -1px;
+    height: 100%;
+    width: 100%;
+    border-bottom: 2px solid #6C63FF;
+    transform: translateX(-100%);
+    transition:  all 0.3s ease;
+}
+
+.input-section label .content-label {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    color: #5E5E5E;
+    transition: all 0.3s ease;
+}
+
+.input-section input:focus + .label-input .content-label,
+.input-section input:valid + .label-input .content-label {
+    transform: translateY(-100%);
+    font-size: .9em;
+    color: #6C63FF;
+}
+
+
+.input-section input:focus + .label-input::after,
+.input-section input:valid + .label-input::after {
+    transform: translateX(0%);
+}
+
+/**
+* MENSAGENS
+*/
+
+.input-error-message {
+    font-size: .9em;
+    text-align: left;
+    color: #FE6D6D;
+}
+
+/**
+* BOTÕES PADRÃO
+*/
+
+.button {
+    border: none;
+    background-color: #e6e6e6;
+    outline: none;
+    color: #2F2E41;
+    font-weight: 300;
+    transition: all 0.3s ease;
+
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    box-shadow: 0px 8px 0px #b4b4b4;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: #dadada;
+}
+
+.button-primary {
+    background-color: #FE6D6D;
+    color: #FFF;
+    box-shadow: 0px 8px 0px #e74d4d;
+}
+
+.button-primary:hover {
+    background-color: #ff7d7d;
+}
+
+.button-secondary {
+    background-color: #6C63FF;
+    color: #FFF;
+    box-shadow: 0px 8px 0px #5F55FF;
+}
+
+.button-secondary:hover {
+    background-color: #736cfa;
+}
+
+.button-small {
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: .8em;
+}
+
+.button-medium {
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 1.2em;
+}
+
+.button-large {
+    padding: 18px 28px;
+    border-radius: 10px;
+    font-size: 1.6em;
+}
+
+.button:active {
+    transform: translateY(12px);
+    box-shadow: 0px 0px 0px #5F55FF;
+}
+
+/**
+* ESPEÇAMENTOS
+*/
+
+.mt-1 {
+    margin-top: 10px;
+}
+
+.mt-2 {
+    margin-top: 20px;
+}
+
+.mt-3 {
+    margin-top: 30px;
+}
+
+.mt-4 {
+    margin-top: 40px;
+}

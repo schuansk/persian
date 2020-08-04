@@ -1,9 +1,8 @@
-div.login {
-    width: 100%;
-    height: 100%;
+div.login-container {
+    height: 100vh;
 
-    padding: 0;
-    margin: 0;
+    background: url('../../assets/svg/left-background-login.svg') no-repeat left center fixed;
+    background-size: 50%;
 
     display: flex;
     justify-content: space-evenly;
@@ -11,112 +10,37 @@ div.login {
     flex-direction: row;
 }
 
-div.login .sidebar-info {
-    width: 50%;
-    z-index: 100;
+div.login-container div.left-content {
+    margin-left: 2%;
 }
 
-div.login .sidebar-info div h2,  div.login .sidebar-info div p, div.login .sidebar-info div span {
-    position: absolute;
-    text-align: left;
-    margin-left: 10px;
-    left: 68px;
+div.login-container div.left-content p {
+    max-width: 90%;
+    margin-bottom: 20px;
 }
 
-div.login .sidebar-info div h2 {
-    width: 387px;
-    height: 56px;
-    top: 30vh;
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 3em;
-    line-height: 56px;
-
-    color: #FFFFFF;
-}
-
-div.login .sidebar-info div p{
-    width: 400px;
-    height: 56px;    
-    top: 40vh;
-    
-    font-style: normal;
-    font-weight: 300;
-    font-size: 1.5em;
-    line-height: 28px;
-    
-    color: #FFFFFF;
-}
-
-div.login .sidebar-info div span {
-    width: 388px;
-    height: 227px;
-    top: 50%;
-}
-
-div.login .login-container {
-    width: 50%;
-}
-
-div.login .login-container div.logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-}
-
-div.login .login-container div.logo h1 {
-    font-family: 'Lobster', cursive;
-    font-size: 3em;
-    color: #2F2E41;
-}
-
-div.login .login-container .h2 {
-    font-style: normal;
-    font-weight: 300;
-    font-size: 4em;
-    line-height: 56px;
-
-    color: #5E5E5E;
+div.login-container div.right-content {
     text-align: center;
 }
 
-@media screen and (max-width: 1024px) {
-    div.login .login-container .h2 {
-        font-size: 2em;
-    }
-
-    div.login {
+@media screen and (max-width: 990px) {
+    div.login-container {
+        background-size: cover;
         padding: 0 20px;
-        height: 100vh;
+
+        align-items: flex-start;
     }
 
-    div.login .sidebar-info {
-        width: 0%;
+    div.left-content {
+        width: 0;
         overflow: hidden;
     }
-    
-    div.login .login-container {
+
+    div.right-content {
         width: 100%;
-    }    
-
-    div.login .sidebar-info div h2,  div.login .sidebar-info div p, div.login .sidebar-info div span {
-        position: relative;
-    } 
-}
-
-@media screen and (min-width: 1440px) {
-    div.login .sidebar-info div h2 {
-        font-size: 4em;
-        width: 600px;
-        line-height: 1.2em;
     }
 
-    div.login .sidebar-info div p {
-        font-size: 2em;
-        width: 600px;
-        line-height: 1.2em;
+    div.right-content .logo {
+        flex-direction: column;
     }
 }

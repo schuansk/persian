@@ -1,16 +1,18 @@
-import React, { useEffect, useContext, useRef } from 'react'
+import React, { useEffect, useContext, useRef, useState } from 'react'
 import { Form } from '@unform/web'
 import * as Yup from 'yup'
 
 import history from '../../history'
 import { Context } from '../../Context/AuthContext'
 import Input from '../../components/Form/Input'
+import Logo from '../../components/Logo'
 
 import './styles.css'
 
 export default function LoginContainer() {
     const formRef = useRef(null)
     const { handleLogin } = useContext(Context)
+    const [ error, setError ] = useState(false)
 
     useEffect(() => {
         const token = localStorage.getItem('token')
@@ -36,7 +38,16 @@ export default function LoginContainer() {
                 abortEarly: false
             })
 
-            handleLogin(data.email, data.password)
+            const login = await handleLogin(data.email, data.password)
+
+            if(login.response.status === 401) {
+                setError(true)   
+                handleError()           
+
+                setTimeout(() => {
+                    setError(false)
+                }, 500)
+            }
 
             //formRef.current.setErrors()
         } catch (err) {
@@ -50,37 +61,55 @@ export default function LoginContainer() {
                 formRef.current.setErrors(errorMessages)
             }
         }
+
+        function handleError() {
+            const form = document.getElementById('form')
+
+            form.classList.add('error')
+
+            setTimeout(() => {
+                form.classList.remove('error')
+            }, 2000)
+        }
     }
 
     return (
-        <Form 
-            ref={formRef} 
-            className="form" 
-            onSubmit={handleSubmit}
-        >
-            <h2 className="h2">Bem-vindo</h2>
+        <>
+            <div className="logo">
+                <Logo error={ error }/>
+                <h1 className="h1 title text-color-dark">Persian</h1>
+            </div>
 
-            <Input 
-                name="email" 
-                label="Digite seu e-mail"
-            />               
+            <Form
+                ref={formRef} 
+                className="form" 
+                onSubmit={handleSubmit}
+                id="form"
+            >
+                <h2 className="h2 text-color-gray">Bem-vindo</h2>
 
-            <Input 
-                name="password" 
-                type="password"
-                label="Digite sua senha"
-            />
+                <Input 
+                    name="email" 
+                    label="Digite seu e-mail"
+                />               
 
-            <div style={{ margin: '0 auto' }}>
-                <button 
-                    type="submit" 
-                    name="send"
-                    id="send"
-                    className="send"
-                >
-                    Fazer login
-                </button>
-            </div>                
-        </Form>
+                <Input 
+                    name="password" 
+                    type="password"
+                    label="Digite sua senha"
+                />
+
+                <div style={{ margin: '0 auto' }}>
+                    <button 
+                        type="submit" 
+                        name="send"
+                        id="send"
+                        className="button button-secondary button-medium mt-2"
+                    >
+                        Entrar
+                    </button>
+                </div>                
+            </Form>
+        </>
     )
 }

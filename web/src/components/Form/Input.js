@@ -20,6 +20,7 @@ export default function Input({ name, ...rest }) {
                     ref={inputRef} 
                     type={rest.type}
                     required
+                    className="mt-2"
                 />
 
                 <label className="label-input">
@@ -30,7 +31,7 @@ export default function Input({ name, ...rest }) {
             </div>
 
             { error && 
-                <span className="error-message">
+                <span className="input-error-message">
                     { error }
                 </span> 
             }

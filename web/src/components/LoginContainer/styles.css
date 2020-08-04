@@ -1,8 +1,8 @@
 .form {
     max-width: 500px;
-    height: 500px;
+    max-height: 500px;
     background: #FFFFFF;
-    padding: 50px;
+    padding: 20px 40px;
 
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
@@ -15,95 +15,71 @@
     margin: 0 auto;
 }
 
-.form .input-section {
-    position: relative;
-    height: 50px;
-    overflow: hidden;
+.error {
+    animation: error 1s alternate-reverse;
 }
 
-.form .input-section input {
+.logo {
     width: 100%;
-    height: 100%;
-    color: #5E5E5E;
-    padding-top: 20px;
-    border: none;
-    font-size: 1.2em;
-    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
 }
 
-.form .input-section label {
-    position: absolute;
-    bottom: 0px;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    border-bottom: 1px solid #5E5E5E;
-}
+@keyframes error {
+    0% {
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        transform: translateX(0%);
+    }
 
-.form .input-section label::after {
-    content: "";
-    position: absolute;
-    left: 0px;
-    bottom: -1px;
-    height: 100%;
-    width: 100%;
-    border-bottom: 2px solid #6C63FF;
-    transform: translateX(-100%);
-    transition:  all 0.3s ease;
-}
+    10% {
+        box-shadow: 0px 8px 8px rgba(153, 67, 67, 0.25);
+        transform: translateX(0.2%);
+    }
 
-.form .input-section label .content-label {
-    position: absolute;
-    bottom: 5px;
-    left: 0px;
-    color: #5E5E5E;
-    transition: all 0.3s ease;
-}
+    20% {
+        box-shadow: 0px 8px 8px rgba(255, 0, 0, 0.25);
+        transform: translateX(-0.2%);
+    }
 
-.form .input-section input:focus + .label-input .content-label,
-.form .input-section input:valid + .label-input .content-label {
-    transform: translateY(-100%);
-    font-size: .9em;
-    color: #6C63FF;
-}
+    30% {
+        box-shadow: 0px 8px 8px rgba(255, 0, 0, 0.25);
+        transform: translateX(0.2%);
+    }
 
+    40% {
+        box-shadow: 0px 8px 8px rgba(255, 0, 0, 0.25);
+        transform: translateX(-0.2%);
+    }
 
-.form .input-section input:focus + .label-input::after,
-.form .input-section input:valid + .label-input::after {
-    transform: translateX(0%);
-}
+    50% {
+        box-shadow: 0px 8px 8px rgba(255, 0, 0, 0.25);
+        transform: translateX(0.2%);
+    }
 
-.form span.error-message {
-    margin-top: -40px;
-    font-size: 14px;
-    color: rgb(250, 94, 94);
-}
+    60% {
+        box-shadow: 0px 8px 8px rgba(255, 0, 0, 0.25);
+        transform: translateX(-0.2%);
+    }
 
-.form button.send {
-    height: 60px;
-    width: 165px;
-    border: none;
-    border-radius: 15px;
-    background-color: #6C63FF;
-    box-shadow: 0px 12px 0px #5F55FF;
-    outline: none;
+    70% {
+        box-shadow: 0px 8px 8px rgba(255, 0, 0, 0.25);
+        transform: translateX(0.2%);
+    }
 
-    margin: 0 auto;
+    80% {
+        box-shadow: 0px 8px 8px rgba(255, 0, 0, 0.25);
+        transform: translateX(-0.2%);
+    }
 
-    color: #FFF;
-    font-size: 1.6em;
-    font-weight: 300;
+    90% {
+        box-shadow: 0px 8px 8px rgba(153, 67, 67, 0.25);
+        transform: translateX(0.2%);
+    }
 
-    transition: all 0.3s ease;
-}
-
-.form button.send:hover {
-    background-color: #5047fc;
-    cursor: pointer;
-}
-
-.form button.send:active {
-    transform: translateY(12px);
-    box-shadow: 0px 0px 0px #5F55FF;
+    100% {
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        transform: translateX(0%);
+    }
 }

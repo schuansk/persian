@@ -1,0 +1,95 @@
+.default-yebrow {
+    animation: closing 4s ease-out infinite;
+    transform-origin: center;
+    transform-box: top;    
+}
+
+.default-eye {
+    animation: blinking  4s ease-out infinite;
+}
+
+.left-eyebrow {    
+    animation: left-angry 1s alternate-reverse;
+}
+
+.right-eyebrow {
+    animation: right-angry 1s alternate-reverse;
+}
+
+.bottom-lip {
+    animation: open-mouth 1s alternate-reverse;
+    transform-origin: center;
+    transform-box: top;
+}
+
+@keyframes left-angry {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(20deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes right-angry {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-20deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes open-mouth {
+    0% {
+        transform: translateY(0%);
+    }
+
+    75% {
+        transform: translateY(2%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes blinking {
+    0% {
+        opacity: 1;
+    }
+    96% {
+        opacity: 1;
+    }
+    98% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes closing {
+    0% {
+        transform: translateY(0%);
+    }
+    96% {
+        transform: translateY(0%);
+    }
+    98% {
+        transform: translateY(8%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
