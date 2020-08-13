@@ -32,7 +32,7 @@ export default function useAuth() {
 
             setAuthenticated(true)
 
-            history.push('/home')
+            history.push('/')
         } catch (err) {
             return err
         }
