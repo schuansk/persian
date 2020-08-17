@@ -1,26 +1,26 @@
-import React, { useEffect, useContext, useRef, useState } from 'react'
-import { Form } from '@unform/web'
-import * as Yup from 'yup'
+import React, { useEffect, useContext, useRef, useState } from 'react';
+import { Form } from '@unform/web';
+import * as Yup from 'yup';
 
-import history from '../../history'
-import { Context } from '../../Context/AuthContext'
-import Input from '../../components/Form/Input'
-import Logo from '../../components/Logo'
+import history from '../../history';
+import { Context } from '../../Context/AuthContext';
+import Input from '../../components/Form/Input';
+import Logo from '../../components/Logo';
 
-import './styles.css'
+import './styles.css';
 
 export default function LoginContainer() {
-    const formRef = useRef(null)
-    const { handleLogin } = useContext(Context)
-    const [ error, setError ] = useState(false)
+    const formRef = useRef(null);
+    const { handleLogin } = useContext(Context);
+    const [ error, setError ] = useState(false);
 
     useEffect(() => {
-        const token = localStorage.getItem('token')
+        const token = localStorage.getItem('token');
 
         if(token) {
-            history.push('/home')
+            history.push('/home');
         }
-    }, [])
+    }, []);
 
     async function handleSubmit(data) {
         
@@ -32,44 +32,44 @@ export default function LoginContainer() {
                 password: Yup.string()
                     .min(3, 'No mínimo três caracteres')
                     .required('A senha é obrigatória')
-            })
+            });
 
             await schema.validate(data, {
                 abortEarly: false
-            })
+            });
 
-            const login = await handleLogin(data.email, data.password)
+            const login = await handleLogin(data.email, data.password);
 
             if(login.response.status === 401) {
-                setError(true)   
-                handleError()           
+                setError(true);  
+                handleError();           
 
                 setTimeout(() => {
-                    setError(false)
-                }, 500)
+                    setError(false);
+                }, 500);
             }
 
             //formRef.current.setErrors()
         } catch (err) {
             if(err instanceof Yup.ValidationError) {
-                const errorMessages = {}
+                const errorMessages = {};
 
                 err.inner.forEach(error => {
                     errorMessages[error.path] = error.message
-                })
+                });
 
-                formRef.current.setErrors(errorMessages)
+                formRef.current.setErrors(errorMessages);
             }
         }
 
         function handleError() {
-            const form = document.getElementById('form')
+            const form = document.getElementById('form');
 
-            form.classList.add('error')
+            form.classList.add('error');
 
             setTimeout(() => {
-                form.classList.remove('error')
-            }, 2000)
+                form.classList.remove('error');
+            }, 2000);
         }
     }
 
@@ -85,6 +85,10 @@ export default function LoginContainer() {
                 className="form" 
                 onSubmit={handleSubmit}
                 id="form"
+                style={{
+                    maxWidth: '500px',
+                    maxHeight: '500px'
+                }}
             >
                 <h2 className="h2 text-color-gray">Bem-vindo</h2>
 

@@ -1,30 +1,30 @@
-const jwt = require('jsonwebtoken')
-const dotenv = require('dotenv')
+const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
 
-dotenv.config()
+dotenv.config();
 
 module.exports = function authMiddleware(req, res, next) {
-    const { authorization } = req.headers
+    const { authorization } = req.headers;
 
     if(!authorization) {
         return res.status(401).json({
             error: '✋ Unauthorized'
-        })
+        });
     }
 
-    const token = authorization.replace('Bearer', '').trim()
+    const token = authorization.replace('Bearer', '').trim();
 
     try {
-        const data = jwt.verify(token, process.env.PRIVATEKEY)
+        const data = jwt.verify(token, process.env.PRIVATEKEY);
 
-        const { id } = data
+        const { id, name } = data;
 
-        req.userId = id
+        req.userId = id;
 
-        return next()
+        return next();
     } catch {
         return res.status(401).json({
             error: '✋ Unauthorized'
-        })
+        });
     }
 }

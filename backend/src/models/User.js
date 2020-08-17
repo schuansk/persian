@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize')
-const bcrypt = require('bcryptjs')
+const { Model, DataTypes } = require('sequelize');
+const bcrypt = require('bcryptjs');
 
 class User extends Model {
     static init(sequelize) {
@@ -11,15 +11,23 @@ class User extends Model {
         {
             hooks: {
                 beforeCreate: (user, options) => {
-                    user.password = bcrypt.hashSync(user.password, 8)
+                    user.password = bcrypt.hashSync(user.password, 8);
                 },
                 beforeUpdate: (user, options) => {
-                    user.password = bcrypt.hashSync(user.password, 8)
+                    user.password = bcrypt.hashSync(user.password, 8);
                 }
             },
-            sequelize
-        })
+            sequelize,
+            tableName: 'users'
+        });
+    }
+
+    static associate(models) {
+        this.hasMany(models.Customer, {
+            foreignKey: 'user_id',
+            as: 'user'
+        });
     }
 }
 
-module.exports = User
+module.exports = User;

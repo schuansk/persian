@@ -1,0 +1,15 @@
+.s-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.s-image {
+    background-image: url('../../assets/svg/people-search.svg');
+}
+
+.s-container .s-search {
+    width: 100%;
+    max-width: 900px;
+}

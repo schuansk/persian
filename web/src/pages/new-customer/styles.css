@@ -1,0 +1,15 @@
+.nc-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.nc-image {
+    background-image: url('../../assets/svg/add-user.svg');
+}
+
+.nc-container .nc-form {
+    width: 100%;
+    max-width: 900px;
+}
