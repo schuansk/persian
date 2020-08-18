@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { MdKeyboardArrowRight } from 'react-icons/md';
 import history from '../../history';
 
 import './styles.css';
@@ -27,9 +28,8 @@ export default function Search() {
             .then(response => {
                 setCustomers(response.data)
             });
-        }
-        
-    }, [id, name])
+        }        
+    }, [id, name]);
 
     return (
         <div className="s-container">
@@ -40,11 +40,27 @@ export default function Search() {
             </div>
 
             <div className="s-search">
-                <input type="text" onChange={(e) => setName(e.target.value)}/>                
-                <ul>
+                <input 
+                    type="text" 
+                    onChange={(e) => setName(e.target.value)}
+                    className="s-search-input"
+                />                
+                <ul className="s-customers-list">
                     {
                         customers.map(customer =>(
-                            <li key={customer.id}>{customer.name}</li>
+                            <li 
+                                key={customer.id} 
+                                className="s-customer-item"
+                                onClick={() => {}}
+                            >
+                                <span className="s-customer-name">
+                                    {customer.name}
+                                </span>
+
+                                <span className="s-customer-arrow">
+                                    <MdKeyboardArrowRight size="50"/>
+                                </span>                                
+                            </li>
                         ))
                     }
                 </ul>

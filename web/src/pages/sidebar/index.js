@@ -18,7 +18,7 @@ export default function Sidebar() {
     useEffect(() => {
         const home = document.getElementById('home');
         home.classList.add('sb-selected');
-        setElement(<Home/>);       
+        setElement(<Search/>);       
     }, []);
 
     useEffect(() => {
