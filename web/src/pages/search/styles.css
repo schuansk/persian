@@ -1,4 +1,6 @@
 .s-container {
+    width: 100%;
+
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -31,6 +33,11 @@
     line-height: 28px;
 
     color: #5E5E5E;
+}
+
+.s-container .s-search .s-search-input:hover,
+.s-container .s-search .s-search-input:focus {
+    box-shadow: 0px 4px 4px #E6E6E6;
 }
 
 .s-container .s-search .s-customers-list {

@@ -31,7 +31,12 @@ export default function Search() {
         }        
     }, [id, name]);
 
+    function handleCustomerProfile(id) {
+        history.push('/search');
+    }
+
     return (
+        <>
         <div className="s-container">
             <div className="s-image title-image" >
                 <h1 className="h1 font-light text-color-gray">
@@ -51,14 +56,14 @@ export default function Search() {
                             <li 
                                 key={customer.id} 
                                 className="s-customer-item"
-                                onClick={() => {}}
+                                onClick={() => handleCustomerProfile(customer.id)}
                             >
                                 <span className="s-customer-name">
                                     {customer.name}
                                 </span>
 
                                 <span className="s-customer-arrow">
-                                    <MdKeyboardArrowRight size="50"/>
+                                    <MdKeyboardArrowRight size="40"/>
                                 </span>                                
                             </li>
                         ))
@@ -66,5 +71,6 @@ export default function Search() {
                 </ul>
             </div>
         </div>
+        </>
     )
 }

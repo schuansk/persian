@@ -1,12 +1,12 @@
-import React from 'react'
-import { Router } from 'react-router-dom'
+import React from 'react';
+import { Router } from 'react-router-dom';
 
-import Routes from './routes'
-import history from './history'
+import Routes from './routes';
+import history from './history';
 
-import './styles.css'
+import './styles.css';
 
-import { AuthProvider } from './Context/AuthContext'
+import { AuthProvider } from './Context/AuthContext';
 
 export default function App() {
     return (
